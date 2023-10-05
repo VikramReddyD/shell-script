@@ -2,7 +2,9 @@
 #!/bin/bash
 
 # our program goal is to install mysql
-
+DATE=$(date +%F-%H-%M-%S)
+SCRIPT_NAME=$0
+LOGFILE=/tmp/$SCRIPT_NAME-$DATE.log
 USERID=$(id -u)
 #This function should validate the previous command and inform the user if it is success or not
 VALIDATE(){
