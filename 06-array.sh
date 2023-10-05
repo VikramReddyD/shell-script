@@ -2,5 +2,5 @@
 
 #array indexing
 
-PERSONS= ("Vikram" "Reddy" "Spandana")
+PERSONS=("Vikram" "Reddy" "Spandana")
 echo " First Person name is: ${PERSONS[0]} "
