@@ -1,0 +1,34 @@
+#!/bin/bash
+#!/bin/bash
+
+# our program goal is to install mysql
+
+USERID=$(id -u)
+#This function should validate the previous command and inform the user if it is success or not
+VALIDATE(){
+    # $1 will be the argument passed from the command line from the below code to this function
+if [ $1 -ne 0 ]
+then
+    echo "FAILURE : installation is failure"
+    exit 1
+else
+    echo " SUCCESS :  successfully installed"
+fi
+}
+
+if [ $USERID -ne 0 ]
+then
+    echo "ERROR:: Please run this script with root access"
+    exit 1
+# else
+#     echo "INFO:: You are root user"
+fi
+
+# it is our responsibility again to check installation is success or not
+yum install mysql -y
+
+VALIDATE $?
+
+yum install postfix -y
+
+VALIDATE $?
