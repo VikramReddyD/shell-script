@@ -11,16 +11,16 @@ VALIDATE(){
     # $1 will be the argument passed from the command line from the below code to this function
 if [ $1 -ne 0 ]
 then
-    echo "$2 : installation is failure"
+    echo -e "\e[31m $2 : installation is failure"
     exit 1
 else
-    echo " $2 :  successfully installed"
+    echo -e "\e[32m $2 :  successfully installed"
 fi
 }
 
 if [ $USERID -ne 0 ]
 then
-    echo "ERROR:: Please run this script with root access"
+    echo -e "\e[31m ERROR:: Please run this script with root access"
     exit 1
 # else
 #     echo "INFO:: You are root user"
