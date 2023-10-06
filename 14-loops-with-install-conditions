@@ -25,7 +25,8 @@ do
  if [ $? -ne 0 ]
  then 
    echo "$VARIABLE is not installed ,let's install "
-   yum install $VARIABLE -y
+   yum install $VARIABLE -y &>>$LOGFILE
+   VALIDATE $VALIDATE "$VARIABLE"
  else
    echo -e  "$Y $VARIABLE is already installed $N"
  fi
