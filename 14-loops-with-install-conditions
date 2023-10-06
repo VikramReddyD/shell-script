@@ -6,6 +6,7 @@ USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
+Y="\e[33m"
 #This function should validate the previous command and inform the user if it is success or not
 VALIDATE(){
     # $1 will be the argument passed from the command line from the below code to this function
@@ -19,12 +20,13 @@ fi
 }
 
 for VARIABLE in $@
-if [yum list installed VARIABLE -ne 0 ]
-then
 do
- yum install $VARIABLE -y &>>LOGFILE
- VALIDATE $? "installing $VARIABLE"
+ yum list installed $VARIABLE
+ if [ $? -ne 0 ]
+ then 
+   echo "$VARIABLE is not installed ,let's install "
+   yum install $VARIABLE -y
+ else
+   echo -e  "$Y $VARIABLE is already installed $N"
+ fi
 done
-else
-    echo -e "$G $2 :  Package already installed"
-fi
