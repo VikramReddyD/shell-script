@@ -23,6 +23,6 @@ do
     fi
 done <<< $DISK_USAGE
 echo "message: $Message"
-echo "$Message" | mail -s "message" vikram.dannarapu@gmail.com
+#echo "$Message" | mail -s "message" vikram.dannarapu@gmail.com
 
 sh mail.sh vikram.dannarapu@gmail.com "High Disk Usage" "$Message" "DevOps Team" "High DISK USAGE"
